@@ -5,8 +5,8 @@
 
 @layer base {
   :root {
-    --background: 260 100% 99%;
-    --foreground: 260 10% 10%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -17,13 +17,13 @@
     --primary: 262 83% 58%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 260 20% 96%;
+    --secondary: 220 14% 96%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 329 86% 70%;
+    --accent: 270 95% 75%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -33,16 +33,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 262 83% 58%;
 
-    --radius: 1rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 0.5rem;
   }
 
   * {
@@ -51,25 +42,18 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased bg-hero-pattern;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
   }
 }
 
 @layer components {
-  .glass {
-    @apply bg-white/50 backdrop-blur-md border border-white/30 shadow-lg;
-  }
-  
-  .glass-card {
-    @apply bg-white/70 backdrop-blur-md border border-white/30 shadow-md rounded-xl transition-all duration-300 hover:shadow-xl;
-  }
-  
-  .glass-dark {
-    @apply bg-clarity-950/50 backdrop-blur-md border border-clarity-800/30 shadow-lg text-white;
+  .mux-card {
+    @apply bg-white border border-gray-100 shadow-sm rounded-lg transition-all duration-300 hover:shadow-md;
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-clarity-600 to-blush-500 inline-block text-transparent bg-clip-text;
+    @apply bg-gradient-to-r from-primary to-accent inline-block text-transparent bg-clip-text font-bold;
   }
   
   .bento-grid {
@@ -77,7 +61,7 @@
   }
 
   .bento-item {
-    @apply glass-card p-6 flex flex-col justify-between;
+    @apply mux-card p-6 flex flex-col justify-between;
   }
   
   .bento-item-large {
@@ -90,5 +74,13 @@
   
   .container-padding {
     @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .primary-button {
+    @apply bg-primary hover:bg-primary/90 text-white font-medium rounded-md transition-colors;
+  }
+
+  .secondary-button {
+    @apply bg-secondary hover:bg-secondary/70 text-gray-900 font-medium rounded-md border border-gray-200 transition-colors;
   }
 }
